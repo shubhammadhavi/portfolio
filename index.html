@@ -135,7 +135,34 @@
             padding: 0.75rem;
         }
 
-        /* --- NEW: AI Chatbot Styles --- */
+        /* --- NEW: Data Impact Card Styles --- */
+        .impact-card-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem; /* gap-3 */
+            margin-top: 1.5rem; /* mt-6 */
+        }
+        .impact-card {
+            background-color: rgba(14, 165, 233, 0.1); /* sky-500/10 */
+            border: 1px solid #38bdf8; /* sky-400 */
+            border-radius: 0.5rem; /* rounded-lg */
+            padding: 1rem; /* p-4 */
+            text-align: center;
+        }
+        .impact-card-title {
+            font-size: 1.875rem; /* text-3xl */
+            font-weight: 800; /* font-extrabold */
+            color: white;
+            line-height: 1;
+        }
+        .impact-card-subtitle {
+            font-size: 0.875rem; /* text-sm */
+            color: #7dd3fc; /* sky-300 */
+            margin-top: 0.25rem; /* mt-1 */
+            letter-spacing: 0.05em; /* tracking-wide */
+        }
+        
+        /* --- AI Chatbot Styles --- */
         #chat-trigger {
             position: fixed;
             bottom: 2rem;
@@ -231,32 +258,77 @@
             20% { opacity: 1; }
             100% { opacity: 0.2; }
         }
-        #chat-options {
-            padding: 1rem;
+
+        /* --- NEW: RAG Bot Input Styles --- */
+        #chat-input-area {
+            padding: 0.75rem;
             border-top: 1px solid #334155; /* slate-700 */
+            background-color: #1e293b; /* slate-800 */
+        }
+        #chat-suggestions {
             display: flex;
-            flex-direction: column;
+            flex-wrap: wrap;
             gap: 0.5rem;
+            margin-bottom: 0.75rem;
         }
-        .chat-option-btn {
-            background-color: transparent;
-            border: 1px solid #38bdf8; /* sky-400 */
-            color: #7dd3fc; /* sky-300 */
-            padding: 0.5rem 0.75rem;
-            border-radius: 0.375rem;
-            text-align: left;
-            font-size: 0.875rem;
-            transition: all 0.2s;
+        .chat-suggestion-chip {
+            background-color: #334155; /* slate-700 */
+            color: #cbd5e1; /* slate-300 */
+            font-size: 0.75rem; /* text-xs */
+            padding: 0.25rem 0.625rem;
+            border-radius: 9999px;
             cursor: pointer;
+            transition: all 0.2s;
         }
-        .chat-option-btn:hover {
-            background-color: rgba(56, 189, 248, 0.2);
+        .chat-suggestion-chip:hover {
+            background-color: #475569; /* slate-600 */
             color: white;
         }
-        .chat-option-btn:disabled {
-            opacity: 0.5;
-            cursor: not-allowed;
+        #chat-form {
+            display: flex;
+            gap: 0.5rem;
         }
+        #chat-input {
+            flex-grow: 1;
+            background-color: #334155; /* slate-700 */
+            color: white;
+            border: 1px solid #475569; /* slate-600 */
+            border-radius: 0.375rem;
+            padding: 0.625rem 0.75rem;
+            font-size: 0.875rem;
+        }
+        #chat-input:focus {
+            outline: none;
+            border-color: #38bdf8;
+            box-shadow: 0 0 0 2px rgba(56, 189, 248, 0.3);
+        }
+        #chat-send-btn {
+            background-color: #0ea5e9; /* sky-500 */
+            color: white;
+            border-radius: 0.375rem;
+            padding: 0.625rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.2s;
+            cursor: pointer;
+            border: none;
+        }
+        #chat-send-btn:hover {
+            background-color: #0284c7; /* sky-600 */
+        }
+        .chat-source-link {
+            font-size: 0.75rem; /* text-xs */
+            color: #7dd3fc; /* sky-300 */
+            text-decoration: underline;
+            margin-top: 0.5rem; /* mt-2 */
+            display: inline-block;
+            cursor: pointer;
+        }
+        .chat-source-link:hover {
+            color: white;
+        }
+
     </style>
 </head>
 <body class="antialiased">
@@ -383,7 +455,7 @@
                     Technical Skills
                 </h2>
                 <div class="max-w-3xl mx-auto h-96 md:h-[500px]">
-                    <canvas id="skillChart"></canvas>
+                    <canvas id="skillChart"></canvas>.
                 </div>
             </div>
         </section>
@@ -396,8 +468,10 @@
                 </h2>
                 <!-- Timeline Container -->
                 <div class="relative border-l-2 border-slate-700">
+                    
                     <!-- Experience Item 1 -->
-                    <div class="mb-12 md:mb-16 relative pl-8">
+                    <!-- NEW: Added id="exp-baker" for RAG bot scrolling -->
+                    <div id="exp-baker" class="mb-12 md:mb-16 relative pl-8">
                         <span class="absolute -left-2.5 top-1 flex items-center justify-center w-5 h-5 bg-sky-500 rounded-full ring-8 ring-slate-900"></span>
                         <div class="bg-slate-800 rounded-lg shadow-xl p-6">
                             <h3 class="text-2xl font-semibold text-white">Python Developer Intern</h3>
@@ -410,10 +484,21 @@
                                 <li>Optimized complex SQL queries and designed efficient database schemas (PostgreSQL) to store and query high-frequency, real-time trading data.</li>
                                 <li>Collaborated with quantitative traders to build and refine predictive models using scikit-learn and TensorFlow to forecast market trends.</li>
                             </ul>
+                            
+                            <!-- NEW: Data Impact Card -->
+                            <div class="impact-card-container">
+                                <div class="impact-card">
+                                    <p class="impact-card-title">+20%</p>
+                                    <p class="impact-card-subtitle">Model Accuracy</p>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
+                    
                     <!-- Experience Item 2 -->
-                    <div class="mb-12 md:mb-16 relative pl-8">
+                    <!-- NEW: Added id="exp-safeline" for RAG bot scrolling -->
+                    <div id="exp-safeline" class="mb-12 md:mb-16 relative pl-8">
                         <span class="absolute -left-2.5 top-1 flex items-center justify-center w-5 h-5 bg-sky-500 rounded-full ring-8 ring-slate-900"></span>
                         <div class="bg-slate-800 rounded-lg shadow-xl p-6">
                             <h3 class="text-2xl font-semibold text-white">Software Developer</h3>
@@ -424,6 +509,14 @@
                                 <li>Developed SQL-based financial models and KPI dashboards (D3.js) to track project variance and forecast spend.</li>
                                 <li>Prototyped an anomaly detection system (Python, scikit-learn) to flag outlier spending, enabling early intervention.</li>
                             </ul>
+                            
+                            <!-- NEW: Data Impact Card -->
+                            <div class="impact-card-container">
+                                <div class="impact-card">
+                                    <p class="impact-card-title">20+</p>
+                                    <p class="impact-card-subtitle">Hours Saved / Week</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -439,7 +532,8 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                     
                     <!-- Project Card 1 (Interactive) -->
-                    <div class="bg-slate-900 rounded-xl shadow-2xl overflow-hidden flex flex-col transition-all duration-300 hover:shadow-sky-500/20">
+                    <!-- NEW: Added id="project-fraud" for RAG bot scrolling -->
+                    <div id="project-fraud" class="bg-slate-900 rounded-xl shadow-2xl overflow-hidden flex flex-col transition-all duration-300 hover:shadow-sky-500/20">
                         <div class="p-6 flex-grow">
                             <h3 class="text-2xl font-semibold text-white mb-2">Credit Card Fraud Detection (Machine Learning)</h3>
                             <ul class="list-disc list-outside ml-5 space-y-2 text-slate-300 mb-6">
@@ -465,7 +559,8 @@
                     </div>
 
                     <!-- Project Card 2 (Interactive) -->
-                    <div class="bg-slate-900 rounded-xl shadow-2xl overflow-hidden flex flex-col transition-all duration-300 hover:shadow-sky-500/20">
+                    <!-- NEW: Added id="project-sentiment" for RAG bot scrolling -->
+                    <div id="project-sentiment" class="bg-slate-900 rounded-xl shadow-2xl overflow-hidden flex flex-col transition-all duration-300 hover:shadow-sky-500/20">
                         <div class="p-6 flex-grow">
                             <h3 class="text-2xl font-semibold text-white mb-2">Restaurant Review Sentiment Analysis (Deep Learning)</h3>
                             <ul class="list-disc list-outside ml-5 space-y-2 text-slate-300 mb-6">
@@ -504,7 +599,8 @@
                 </h2>
                 <div class="space-y-8">
                     <!-- Education Card 1 -->
-                    <div class="bg-slate-800 rounded-lg shadow-xl p-6">
+                    <!-- NEW: Added id="edu-pace" for RAG bot scrolling -->
+                    <div id="edu-pace" class="bg-slate-800 rounded-lg shadow-xl p-6">
                         <h3 class="text-2xl font-semibold text-white">Master of Science in Computer Science</h3>
                         <p class="text-lg text-sky-300 my-1">Pace University | New York, NY</p>
                         <p class="text-sm text-slate-400 mb-2">Sep 2022 – May 2024</p>
@@ -512,7 +608,8 @@
                         <p class="text-slate-300 mt-1">Relevant Coursework: Artificial Intelligence, Algorithms & Computing Theory, Database Management Systems, Parallel Computing.</p>
                     </div>
                     <!-- Education Card 2 -->
-                    <div class="bg-slate-800 rounded-lg shadow-xl p-6">
+                    <!-- NEW: Added id="edu-mumbai" for RAG bot scrolling -->
+                    <div id="edu-mumbai" class="bg-slate-800 rounded-lg shadow-xl p-6">
                         <h3 class="text-2xl font-semibold text-white">Bachelor of Engineering in Computer Engineering</h3>
                         <p class="text-lg text-sky-300 my-1">Mumbai University | Mumbai, India</p>
                         <p class="text-sm text-slate-400 mb-2">Aug 2018 – May 2021</p>
@@ -586,7 +683,7 @@
         </div>
     </div>
 
-    <!-- NEW: AI Chatbot Trigger Button -->
+    <!-- AI Chatbot Trigger Button -->
     <button id="chat-trigger" title="AI Resume Assistant">
         <!-- Chat Icon SVG -->
         <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" viewBox="0 0 24 24" fill="currentColor">
@@ -594,7 +691,7 @@
         </svg>
     </button>
 
-    <!-- NEW: AI Chatbot Modal -->
+    <!-- AI Chatbot Modal -->
     <div id="chat-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4">
         <div id="chat-window">
             <!-- Chat Header -->
@@ -609,9 +706,20 @@
             <div id="chat-body">
                 <!-- Messages will be injected here -->
             </div>
-            <!-- Chat Options -->
-            <div id="chat-options">
-                <!-- Question buttons will be injected here -->
+            <!-- NEW: RAG Bot Input Area -->
+            <div id="chat-input-area">
+                <div id="chat-suggestions">
+                    <!-- Suggestion chips will be injected here -->
+                </div>
+                <form id="chat-form">
+                    <input type="text" id="chat-input" placeholder="Ask about skills, projects, GPA..." autocomplete="off">
+                    <button id="chat-send-btn" type="submit" title="Send">
+                        <!-- Send Icon SVG -->
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                            <path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009.175 17V4.602a1 1 0 00-1.169-1.409l-5 1.429a1 1 0 00-.91 1.01l.001.001.001.001L2 6l7-2v12l-7 2z" />
+                        </svg>
+                    </button>
+                </form>
             </div>
         </div>
     </div>
@@ -807,7 +915,6 @@
                             },
                             tooltip: {
                                 enabled: true,
-                                // FIX: This block was corrupted. Replaced with correct callback.
                                 callbacks: {
                                     label: function(context) {
                                         return context.label + ': ' + context.formattedValue + '%';
@@ -819,7 +926,7 @@
                 });
             }
 
-            // --- NEW: Project Demo Logic ---
+            // --- Project Demo Logic ---
 
             // Sentiment Analysis Demo
             const sentimentInput = document.getElementById('sentiment-input');
@@ -896,33 +1003,150 @@
                 });
             }
 
-            // --- NEW: AI Chatbot Logic ---
+            // --- NEW: AI Chatbot (Simulated RAG) Logic ---
             const chatTrigger = document.getElementById('chat-trigger');
             const chatModal = document.getElementById('chat-modal');
             const closeChatModal = document.getElementById('close-chat-modal');
             const chatBody = document.getElementById('chat-body');
-            const chatOptions = document.getElementById('chat-options');
+            const chatForm = document.getElementById('chat-form');
+            const chatInput = document.getElementById('chat-input');
+            const chatSuggestions = document.getElementById('chat-suggestions');
 
-            const questionsAndAnswers = {
-                "skills": {
-                    "q": "What are Shubham's top skills?",
-                    "a": "Shubham's top skills are in Python (Expert), SQL (Expert), and Machine Learning (scikit-learn, TensorFlow). He also has deep experience in Data Engineering with PySpark and Airflow."
+            // 1. Create the "Vector Store" (resume context)
+            const resumeContext = [
+                { 
+                    id: 'about', 
+                    title: 'About Section',
+                    content: "Data-driven Software Engineer with a Master's in Computer Science and hands-on experience in quantitative finance and machine learning. Proven ability to build and optimize data-intensive systems, from ETL pipelines and backtesting frameworks to high-accuracy ML models. Seeking to apply expertise in Python, data engineering, and AI to solve complex, high-impact problems.",
+                    keywords: ['about', 'summary', 'software engineer', 'data-driven', 'quantitative finance', 'machine learning', 'python', 'ai']
                 },
-                "genai": {
-                    "q": "What are his Generative AI skills?",
-                    "a": "He's proficient with modern GenAI stacks. His resume lists RAG (Retrieval-Augmented Generation), LangChain/LangGraph, Hugging Face Transformers, and Vector Databases like FAISS and Pinecone. This chatbot is a (simulated) example of that skill set!"
+                { 
+                    id: 'skills', 
+                    title: 'Skills Section',
+                    content: "Generative AI: RAG, LangChain/LangGraph, Hugging Face Transformers, Vector DBs (FAISS, Pinecone)",
+                    keywords: ['generative', 'genai', 'rag', 'langchain', 'langgraph', 'hugging face', 'transformers', 'vector db', 'faiss', 'pinecone']
                 },
-                "experience": {
-                    "q": "Summarize his experience at Baker Trading.",
-                    "a": "At Baker Trading, Shubham made a significant impact. He architected a Python backtesting framework that improved predictive model accuracy by 20%. He also engineered the ETL pipelines for large-scale financial data and built automated trading scripts."
+                { 
+                    id: 'skills', 
+                    title: 'Skills Section',
+                    content: "Data Science & ML: scikit-learn, TensorFlow (Keras), Pandas, NumPy, NLP (TF-IDF, Word2Vec, GloVe)",
+                    keywords: ['scikit-learn', 'tensorflow', 'keras', 'pandas', 'numpy', 'nlp', 'tf-idf', 'word2vec', 'glove', 'ml', 'data science']
                 },
-                "projects": {
-                    "q": "Tell me about his projects.",
-                    "a": "Shubham has two major projects. His Credit Card Fraud Detection model achieved 92% accuracy using a Random Forest. His Sentiment Analysis project also hit 92% accuracy with an LSTM model. You can try (simulated) demos of both in the 'Projects' section!"
+                { 
+                    id: 'skills', 
+                    title: 'Skills Section',
+                    content: "Data Engineering: PySpark, Hadoop, Airflow, ETL/ELT, SQL (MySQL, PostgreSQL), NoSQL (MongoDB)",
+                    keywords: ['pyspark', 'hadoop', 'airflow', 'etl', 'elt', 'sql', 'mysql', 'postgresql', 'mongodb', 'data engineering']
+                },
+                { 
+                    id: 'skills', 
+                    title: 'Skills Section',
+                    content: "Cloud & DevOps: AWS (SageMaker), Docker, Git, Linux, CI/CD, Azure (Familiar)",
+                    keywords: ['aws', 'sagemaker', 'docker', 'git', 'linux', 'ci/cd', 'azure', 'cloud', 'devops']
+                },
+                { 
+                    id: 'exp-baker', 
+                    title: 'Baker Trading Experience',
+                    content: "At Baker Trading (Oct 2024 – Jun 2025), improved predictive trading model accuracy by 20% by architecting and implementing a comprehensive backtesting framework in Python. Also engineered and maintained robust ETL pipelines (Python, Pandas) for large-scale financial market data.",
+                    keywords: ['baker trading', 'intern', 'python developer', '20%', 'accuracy', 'backtesting', 'etl', 'pandas', 'financial data']
+                },
+                { 
+                    id: 'exp-safeline', 
+                    title: 'Safeline Electricals Experience',
+                    content: "At Safeline Electricals (Aug 2021 – Aug 2022), automated key business reporting by building a centralized Python/SQL ETL warehouse, eliminating 20+ hours of manual data consolidation per week. Also developed SQL-based financial models and KPI dashboards (D3.js).",
+                    keywords: ['safeline electricals', 'software developer', '20+ hours', 'automated', 'etl warehouse', 'sql', 'd3.js', 'kpi', 'dashboards']
+                },
+                { 
+                    id: 'project-fraud', 
+                    title: 'Fraud Detection Project',
+                    content: "Credit Card Fraud Detection Project: Achieved 92% accuracy by engineering a Random Forest model on a 284,000-transaction dataset. Boosted fraud recall by 25% by implementing SMOTE to resolve severe class imbalance.",
+                    keywords: ['credit card', 'fraud detection', 'project', '92% accuracy', 'random forest', 'smote', 'recall', '25%']
+                },
+                { 
+                    id: 'project-sentiment', 
+                    title: 'Sentiment Analysis Project',
+                    content: "Restaurant Review Sentiment Analysis Project: Attained 92% accuracy by designing and training an LSTM-based deep learning model, outperforming traditional ML baselines (SVM, Random Forest). Built a data processing pipeline using TF-IDF and word embeddings (Word2Vec, GloVe).",
+                    keywords: ['sentiment analysis', 'project', '92% accuracy', 'lstm', 'deep learning', 'tf-idf', 'word2vec', 'glove', 'svm', 'random forest']
+                },
+                { 
+                    id: 'edu-pace', 
+                    title: 'Pace University Education',
+                    content: "Master of Science in Computer Science from Pace University (Sep 2022 – May 2024) with a GPA of 3.66/4.0. Relevant Coursework: Artificial Intelligence, Algorithms & Computing Theory, Database Management Systems, Parallel Computing.",
+                    keywords: ['pace university', 'master', 'ms', 'computer science', 'gpa', '3.66', 'artificial intelligence', 'algorithms']
+                },
+                { 
+                    id: 'edu-mumbai', 
+                    title: 'Mumbai University Education',
+                    content: "Bachelor of Engineering in Computer Engineering from Mumbai University (Aug 2018 – May 2021). Honors: Project Planet USA Winner ($15k grant for developing bio-bricks to restore coral reefs).",
+                    keywords: ['mumbai university', 'bachelor', 'be', 'computer engineering', 'honors', 'project planet usa']
+                },
+                {
+                    id: 'contact',
+                    title: 'Contact Information',
+                    content: "You can reach Shubham at shubhammadhavi9@gmail.com or by phone at (201) 526-5040. He is based in Jersey City, NJ.",
+                    keywords: ['email', 'phone', 'contact', 'location', 'jersey city', 'gmail']
                 }
-            };
+            ];
 
-            function appendMessage(text, type) {
+            const suggestionChips = [
+                'What are his GenAI skills?',
+                'Tell me about his 20% impact.',
+                'What is his GPA?',
+                'How to contact him?'
+            ];
+            
+            // 2. The "RAG" functions
+            function findRelevantContext(query) {
+                const cleanQuery = query.toLowerCase().replace(/[?,.]/g, '');
+                const queryKeywords = cleanQuery.split(' ').filter(k => k.length > 2);
+                let scores = [];
+
+                resumeContext.forEach(chunk => {
+                    let score = 0;
+                    const content = chunk.content.toLowerCase();
+                    const chunkKeywords = chunk.keywords;
+
+                    queryKeywords.forEach(qWord => {
+                        if (content.includes(qWord)) {
+                            score += 1; // Base score for content match
+                        }
+                        if (chunkKeywords.includes(qWord)) {
+                            score += 3; // Higher score for keyword match
+                        }
+                    });
+
+                    // Boost for specific, high-value terms
+                    if ((cleanQuery.includes('20%') || cleanQuery.includes('twenty percent')) && chunk.id === 'exp-baker') score += 10;
+                    if ((cleanQuery.includes('20 hours') || cleanQuery.includes('twenty hours')) && chunk.id === 'exp-safeline') score += 10;
+                    if (cleanQuery.includes('gpa') && chunk.id === 'edu-pace') score += 10;
+                    if (cleanQuery.includes('rag') && chunk.id === 'skills') score += 10;
+                    if (cleanQuery.includes('contact') && chunk.id === 'contact') score += 10;
+
+                    if (score > 0) {
+                        scores.push({ chunk, score });
+                    }
+                });
+
+                // Sort by score descending
+                scores.sort((a, b) => b.score - a.score);
+                return scores.length > 0 ? scores[0].chunk : null; // Return top chunk
+            }
+
+            function generateAnswer(query, context) {
+                if (!context) {
+                    return "I'm not sure I have information on that. I'm trained on Shubham's resume, so try asking about his skills, experience, projects, or education.";
+                }
+
+                // This is the "Generative" (simulated) part
+                let response = `Here's what I found about "${query}":\n\n`;
+                response += context.content;
+                response += `\n\n<a class="chat-source-link" data-scroll-to="#${context.id}">Source: ${context.title}</a>`;
+                
+                return response;
+            }
+
+            // 3. Chat UI Functions
+            function appendMessage(html, type) {
                 const bubble = document.createElement('div');
                 bubble.className = `chat-bubble ${type}-bubble`;
 
@@ -936,47 +1160,51 @@
                     `;
                     bubble.id = 'typing-bubble';
                 } else {
-                    bubble.textContent = text;
+                    bubble.innerHTML = html; // Use innerHTML to render the source link
                 }
                 
                 chatBody.appendChild(bubble);
                 chatBody.scrollTop = chatBody.scrollHeight; // Auto-scroll
             }
 
-            function showQuestionButtons() {
-                chatOptions.innerHTML = '';
-                Object.keys(questionsAndAnswers).forEach(key => {
-                    const button = document.createElement('button');
-                    button.className = 'chat-option-btn';
-                    button.textContent = questionsAndAnswers[key].q;
-                    button.dataset.key = key;
-                    button.addEventListener('click', handleQuestionClick);
-                    chatOptions.appendChild(button);
+            function showSuggestionChips() {
+                chatSuggestions.innerHTML = '';
+                suggestionChips.forEach(q => {
+                    const chip = document.createElement('div');
+                    chip.className = 'chat-suggestion-chip';
+                    chip.textContent = q;
+                    chip.onclick = () => {
+                        chatInput.value = q;
+                        chatForm.requestSubmit(); // Submit form
+                    };
+                    chatSuggestions.appendChild(chip);
                 });
-                chatOptions.classList.remove('hidden');
             }
-
-            function handleQuestionClick(e) {
-                const key = e.target.dataset.key;
-                const question = questionsAndAnswers[key].q;
-                const answer = questionsAndAnswers[key].a;
+            
+            function handleChatSubmit(e) {
+                e.preventDefault();
+                const query = chatInput.value.trim();
+                if (query === '') return;
 
                 // 1. Append user question
-                appendMessage(question, 'user');
+                appendMessage(query, 'user');
+                chatInput.value = ''; // Clear input
                 
-                // 2. Disable buttons and show typing indicator
-                chatOptions.classList.add('hidden');
+                // 2. Show typing indicator
                 appendMessage('...', 'bot-typing');
 
-                // 3. Simulate bot response
+                // 3. Simulate RAG response
                 setTimeout(() => {
                     // Remove typing indicator
                     document.getElementById('typing-bubble').remove();
+                    
+                    // Find context and generate answer
+                    const context = findRelevantContext(query);
+                    const answer = generateAnswer(query, context);
+                    
                     // Append bot answer
                     appendMessage(answer, 'bot');
-                    // Show question buttons again
-                    showQuestionButtons();
-                }, 1500 + Math.random() * 500); // Add a little realistic variance
+                }, 1500 + Math.random() * 500); // Realistic variance
             }
             
             function openChat() {
@@ -985,8 +1213,8 @@
                 
                 // Only add welcome message if chat is empty
                 if (chatBody.children.length === 0) {
-                    appendMessage("Hi! I'm Shubham's AI assistant. I've been trained on his resume. What would you like to know?", 'bot');
-                    showQuestionButtons();
+                    appendMessage("Hi! I'm an AI assistant trained on Shubham's resume. You can ask me questions like 'What are his GenAI skills?' or 'What's his GPA?'.", 'bot');
+                    showSuggestionChips();
                 }
             }
             
@@ -995,15 +1223,38 @@
                 chatModal.classList.remove('flex');
             }
 
-            // Chatbot event listeners
+            // 4. Event Listeners
             chatTrigger.addEventListener('click', openChat);
             closeChatModal.addEventListener('click', closeChat);
+            chatForm.addEventListener('submit', handleChatSubmit);
+            
             chatModal.addEventListener('click', (e) => {
                 if (e.target === chatModal) {
                     closeChat();
                 }
             });
 
+            // Add delegated event listener for source links
+            chatBody.addEventListener('click', (e) => {
+                if (e.target.classList.contains('chat-source-link')) {
+                    e.preventDefault();
+                    const targetId = e.target.dataset.scrollTo;
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        closeChat();
+                        // Wait a tick for modal to close, then scroll
+                        setTimeout(() => {
+                            targetElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                            // Optional: highlight the element
+                            targetElement.style.transition = 'all 0.5s';
+                            targetElement.style.boxShadow = '0 0 30px 10px rgba(56, 189, 248, 0.7)';
+                            setTimeout(() => {
+                                targetElement.style.boxShadow = '';
+                            }, 2500);
+                        }, 200);
+                    }
+                }
+            });
 
             // --- Custom styles injection ---
             const style = document.createElement('style');
