@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shubham Madhavi | Software Engineer (Data & AI)</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Font: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Custom Styles -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0f172a; /* slate-900 */
+            color: #cbd5e1; /* slate-300 */
+        }
+        /* Custom scrollbar (optional, but nice) */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #1e293b; /* slate-800 */
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #38bdf8; /* sky-400 */
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #0ea5e9; /* sky-500 */
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Header & Navigation -->
+    <header class="sticky top-0 z-50 w-full backdrop-blur-lg bg-slate-900/70 border-b border-slate-700/50">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo/Name -->
+                <div class="flex-shrink-0">
+                    <a href="#home" class="text-2xl font-bold text-white">Shubham Madhavi</a>
+                </div>
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex md:items-center md:space-x-8">
+                    <a href="#about" class="text-slate-300 hover:text-sky-400 transition duration-300">About</a>
+                    <a href="#skills" class="text-slate-300 hover:text-sky-400 transition duration-300">Skills</a>
+                    <a href="#experience" class="text-slate-300 hover:text-sky-400 transition duration-300">Experience</a>
+                    <a href="#projects" class="text-slate-300 hover:text-sky-400 transition duration-300">Projects</a>
+                    <a href="#education" class="text-slate-300 hover:text-sky-400 transition duration-300">Education</a>
+                    <a href="#contact" class="ml-4 px-4 py-2 bg-sky-500 text-white rounded-md font-medium hover:bg-sky-600 transition duration-300">
+                        Contact
+                    </a>
+                </div>
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-button" class="inline-flex items-center justify-center p-2 rounded-md text-slate-400 hover:text-white hover:bg-slate-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-sky-500" aria-expanded="false">
+                        <span class="sr-only">Open main menu</span>
+                        <!-- Hamburger Icon -->
+                        <svg id="menu-icon" class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                        <!-- Close Icon -->
+                        <svg id="close-icon" class="hidden h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </nav>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden border-t border-slate-700">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#about" class="block px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:text-white hover:bg-slate-700">About</a>
+                <a href="#skills" class="block px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:text-white hover:bg-slate-700">Skills</a>
+                <a href="#experience" class="block px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:text-white hover:bg-slate-700">Experience</a>
+                <a href="#projects" class="block px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:text-white hover:bg-slate-700">Projects</a>
+                <a href="#education" class="block px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:text-white hover:bg-slate-700">Education</a>
+                <a href="#contact" class="block px-3 py-2 rounded-md text-base font-medium text-sky-400 hover:text-white hover:bg-slate-700">Contact</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="min-h-screen flex items-center justify-center text-center px-4 py-20 bg-grid-pattern">
+            <div class="relative z-10">
+                <h1 class="text-5xl md:text-7xl font-extrabold text-white leading-tight">
+                    Shubham Madhavi
+                </h1>
+                <p class="mt-4 text-2xl md:text-4xl font-light text-sky-300">
+                    Software Engineer (Data & AI)
+                </p>
+                <p class="mt-6 text-lg text-slate-400 max-w-2xl mx-auto">
+                    Based in Jersey City, NJ. Specializing in building and optimizing data-intensive systems, from ETL pipelines to high-accuracy ML models.
+                </p>
+                <div class="mt-10 flex flex-wrap justify-center gap-4">
+                    <a href="#projects" class="px-6 py-3 bg-sky-500 text-white rounded-md font-medium text-lg hover:bg-sky-600 transition duration-300">
+                        View My Work
+                    </a>
+                    <a href="#contact" class="px-6 py-3 bg-slate-700 text-slate-200 rounded-md font-medium text-lg hover:bg-slate-600 transition duration-300">
+                        Get in Touch
+                    </a>
+                </div>
+                <!-- Social Links -->
+                <div class="mt-12 flex justify-center space-x-6">
+                    <a href="mailto:shubhammadhavi9@gmail.com" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-sky-400 transition duration-300" title="Email">
+                        <span class="sr-only">Email</span>
+                        <svg class="w-8 h-8" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                    </a>
+                    <!-- NOTE: Add your actual GitHub/LinkedIn URLs to the href attribute -->
+                    <a href="#" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-sky-400 transition duration-300" title="GitHub">
+                        <span class="sr-only">GitHub</span>
+                        <svg class="w-8 h-8" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                    </a>
+                    <a href="#" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-sky-400 transition duration-300" title="LinkedIn">
+                        <span class="sr-only">LinkedIn</span>
+                        <svg class="w-8 h-8" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                    </a>
+                    <a href="tel:+12015265040" class="text-slate-400 hover:text-sky-400 transition duration-300" title="Phone">
+                        <span class="sr-only">Phone</span>
+                        <svg class="w-8 h-8" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="py-24 sm:py-32">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-center text-4xl font-extrabold text-white sm:text-5xl mb-12">
+                    About Me
+                </h2>
+                <p class="text-xl text-slate-300 leading-relaxed">
+                    Data-driven Software Engineer with a Master's in Computer Science and hands-on experience in quantitative finance and machine learning. Proven ability to build and optimize data-intensive systems, from ETL pipelines and backtesting frameworks to high-accuracy ML models. Seeking to apply expertise in Python, data engineering, and AI to solve complex, high-impact problems.
+                </p>
+            </div>
+        </section>
+
+        <!-- Technical Skills Section -->
+        <section id="skills" class="py-24 sm:py-32 bg-slate-800/60">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-center text-4xl font-extrabold text-white sm:text-5xl mb-16">
+                    Technical Skills
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Skill Card 1 -->
+                    <div class="bg-slate-900 rounded-xl shadow-2xl p-6 transition-all duration-300 hover:scale-105 hover:shadow-sky-500/20">
+                        <h3 class="text-2xl font-semibold text-white mb-4">Languages</h3>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="skill-pill">Python (Expert)</span>
+                            <span class="skill-pill">SQL (Expert)</span>
+                            <span class="skill-pill">Java</span>
+                            <span class="skill-pill">C++</span>
+                        </div>
+                    </div>
+                    <!-- Skill Card 2 -->
+                    <div class="bg-slate-900 rounded-xl shadow-2xl p-6 transition-all duration-300 hover:scale-105 hover:shadow-sky-500/20">
+                        <h3 class="text-2xl font-semibold text-white mb-4">Data Science & ML</h3>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="skill-pill">scikit-learn</span>
+                            <span class="skill-pill">TensorFlow (Keras)</span>
+                            <span class="skill-pill">Pandas</span>
+                            <span class="skill-pill">NumPy</span>
+                            <span class="skill-pill">NLP</span>
+                            <span class="skill-pill">TF-IDF</span>
+                            <span class="skill-pill">Word2Vec</span>
+                            <span class="skill-pill">GloVe</span>
+                        </div>
+                    </div>
+                    <!-- Skill Card 3 -->
+                    <div class="bg-slate-900 rounded-xl shadow-2xl p-6 transition-all duration-300 hover:scale-105 hover:shadow-sky-500/20">
+                        <h3 class="text-2xl font-semibold text-white mb-4">Data Engineering</h3>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="skill-pill">PySpark</span>
+                            <span class="skill-pill">Hadoop</span>
+                            <span class="skill-pill">Airflow</span>
+                            <span class="skill-pill">ETL/ELT</span>
+                            <span class="skill-pill">MySQL</span>
+                            <span class="skill-pill">PostgreSQL</span>
+                            <span class="skill-pill">MongoDB</span>
+                        </div>
+                    </div>
+                    <!-- Skill Card 4 -->
+                    <div class="bg-slate-900 rounded-xl shadow-2xl p-6 transition-all duration-300 hover:scale-105 hover:shadow-sky-500/20">
+                        <h3 class="text-2xl font-semibold text-white mb-4">Cloud & DevOps</h3>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="skill-pill">AWS (SageMaker)</span>
+                            <span class="skill-pill">Docker</span>
+                            <span class="skill-pill">Git</span>
+                            <span class="skill-pill">Linux</span>
+                            <span class="skill-pill">CI/CD</span>
+                            <span class="skill-pill">Azure (Familiar)</span>
+                        </div>
+                    </div>
+                    <!-- Skill Card 5 -->
+                    <div class="bg-slate-900 rounded-xl shadow-2xl p-6 transition-all duration-300 hover:scale-105 hover:shadow-sky-500/20">
+                        <h3 class="text-2xl font-semibold text-white mb-4">Generative AI</h3>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="skill-pill">RAG</span>
+                            <span class="skill-pill">LangChain/LangGraph</span>
+                            <span class="skill-pill">Hugging Face</span>
+                            <span class="skill-pill">Vector DBs</span>
+                            <span class="skill-pill">FAISS</span>
+                            <span class="skill-pill">Pinecone</span>
+                        </div>
+                    </div>
+                    <!-- Skill Card 6 -->
+                    <div class="bg-slate-900 rounded-xl shadow-2xl p-6 transition-all duration-300 hover:scale-105 hover:shadow-sky-500/20">
+                        <h3 class="text-2xl font-semibold text-white mb-4">Web & Visualization</h3>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="skill-pill">Node.js</span>
+                            <span class="skill-pill">React</span>
+                            <span class="skill-pill">Matplotlib</span>
+                            <span class="skill-pill">Seaborn</span>
+                            <span class="skill-pill">Plotly</span>
+                            <span class="skill-pill">Power BI</span>
+                            <span class="skill-pill">Tableau</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience" class="py-24 sm:py-32">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-center text-4xl font-extrabold text-white sm:text-5xl mb-16">
+                    Work Experience
+                </h2>
+                <!-- Timeline Container -->
+                <div class="relative border-l-2 border-slate-700">
+                    <!-- Experience Item 1 -->
+                    <div class="mb-12 md:mb-16 relative pl-8">
+                        <span class="absolute -left-2.5 top-1 flex items-center justify-center w-5 h-5 bg-sky-500 rounded-full ring-8 ring-slate-900"></span>
+                        <div class="bg-slate-800 rounded-lg shadow-xl p-6">
+                            <h3 class="text-2xl font-semibold text-white">Python Developer Intern</h3>
+                            <p class="text-lg text-sky-300 my-1">Baker Trading | Seattle, WA</p>
+                            <p class="text-sm text-slate-400 mb-4">Oct 2024 – Jun 2025</p>
+                            <ul class="list-disc list-outside ml-5 space-y-2 text-slate-300">
+                                <li>Improved predictive trading model accuracy by 20% by architecting and implementing a comprehensive backtesting framework in Python.</li>
+                                <li>Engineered and maintained robust ETL pipelines (Python, Pandas) to clean, transform, and load large-scale financial market data.</li>
+                                <li>Developed and deployed automated trading scripts leveraging financial data APIs, directly contributing to optimized trade execution strategies.</li>
+                                <li>Optimized complex SQL queries and designed efficient database schemas (PostgreSQL) to store and query high-frequency, real-time trading data.</li>
+                                <li>Collaborated with quantitative traders to build and refine predictive models using scikit-learn and TensorFlow to forecast market trends.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- Experience Item 2 -->
+                    <div class="mb-12 md:mb-16 relative pl-8">
+                        <span class="absolute -left-2.5 top-1 flex items-center justify-center w-5 h-5 bg-sky-500 rounded-full ring-8 ring-slate-900"></span>
+                        <div class="bg-slate-800 rounded-lg shadow-xl p-6">
+                            <h3 class="text-2xl font-semibold text-white">Software Developer</h3>
+                            <p class="text-lg text-sky-300 my-1">Safeline Electricals | Mumbai, India</p>
+                            <p class="text-sm text-slate-400 mb-4">Aug 2021 – Aug 2022</p>
+                            <ul class="list-disc list-outside ml-5 space-y-2 text-slate-300">
+                                <li>Automated key business reporting by building a centralized Python/SQL ETL warehouse, eliminating 20+ hours of manual data consolidation per week.</li>
+                                <li>Developed SQL-based financial models and KPI dashboards (D3.js) to track project variance and forecast spend.</li>
+                                <li>Prototyped an anomaly detection system (Python, scikit-learn) to flag outlier spending, enabling early intervention.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="py-24 sm:py-32 bg-slate-800/60">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-center text-4xl font-extrabold text-white sm:text-5xl mb-16">
+                    Projects
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Project Card 1 -->
+                    <div class="bg-slate-900 rounded-xl shadow-2xl overflow-hidden flex flex-col transition-all duration-300 hover:shadow-sky-500/20">
+                        <div class="p-6 flex-grow">
+                            <h3 class="text-2xl font-semibold text-white mb-2">Credit Card Fraud Detection (Machine Learning)</h3>
+                            <ul class="list-disc list-outside ml-5 space-y-2 text-slate-300 mb-6">
+                                <li>Achieved 92% accuracy by engineering a Random Forest model on a 284,000-transaction dataset.</li>
+                                <li>Boosted fraud recall by 25% by implementing SMOTE to resolve severe class imbalance.</li>
+                                <li>Conducted in-depth EDA to identify key fraud indicators and engineered new features.</li>
+                            </ul>
+                        </div>
+                        <div class="p-6 pt-0 mt-auto">
+                            <!-- NOTE: Add your actual GitHub project URL to the href attribute -->
+                            <a href="#" target="_blank" rel="noopener noreferrer" class="inline-flex items-center font-medium text-sky-400 hover:text-sky-300 transition duration-300">
+                                View on GitHub
+                                <svg class="w-5 h-5 ml-2" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- Project Card 2 -->
+                    <div class="bg-slate-900 rounded-xl shadow-2xl overflow-hidden flex flex-col transition-all duration-300 hover:shadow-sky-500/20">
+                        <div class="p-6 flex-grow">
+                            <h3 class="text-2xl font-semibold text-white mb-2">Restaurant Review Sentiment Analysis (Deep Learning)</h3>
+                            <ul class="list-disc list-outside ml-5 space-y-2 text-slate-300 mb-6">
+                                <li>Attained 92% accuracy by designing and training an LSTM-based deep learning model.</li>
+                                <li>Outperformed traditional ML baselines (SVM, Random Forest).</li>
+                                <li>Built a complete data processing pipeline using TF-IDF and word embeddings (Word2Vec, GloVe).</li>
+                            </ul>
+                        </div>
+                        <div class="p-6 pt-0 mt-auto">
+                            <!-- NOTE: Add your actual GitHub project URL to the href attribute -->
+                            <a href="#" target="_blank" rel="noopener noreferrer" class="inline-flex items-center font-medium text-sky-400 hover:text-sky-300 transition duration-300">
+                                View on GitHub
+                                <svg class="w-5 h-5 ml-2" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education Section -->
+        <section id="education" class="py-24 sm:py-32">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-center text-4xl font-extrabold text-white sm:text-5xl mb-16">
+                    Education
+                </h2>
+                <div class="space-y-8">
+                    <!-- Education Card 1 -->
+                    <div class="bg-slate-800 rounded-lg shadow-xl p-6">
+                        <h3 class="text-2xl font-semibold text-white">Master of Science in Computer Science</h3>
+                        <p class="text-lg text-sky-300 my-1">Pace University | New York, NY</p>
+                        <p class="text-sm text-slate-400 mb-2">Sep 2022 – May 2024</p>
+                        <p class="text-slate-300">GPA: 3.66/4.0</p>
+                        <p class="text-slate-300 mt-1">Relevant Coursework: Artificial Intelligence, Algorithms & Computing Theory, Database Management Systems, Parallel Computing.</p>
+                    </div>
+                    <!-- Education Card 2 -->
+                    <div class="bg-slate-800 rounded-lg shadow-xl p-6">
+                        <h3 class="text-2xl font-semibold text-white">Bachelor of Engineering in Computer Engineering</h3>
+                        <p class="text-lg text-sky-300 my-1">Mumbai University | Mumbai, India</p>
+                        <p class="text-sm text-slate-400 mb-2">Aug 2018 – May 2021</p>
+                        <p class="text-slate-300">Honors: Project Planet USA Winner ($15k grant for developing bio-bricks to restore coral reefs).</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-24 sm:py-32 bg-slate-800/60 text-center">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-4xl font-extrabold text-white sm:text-5xl">
+                    Get in Touch
+                </h2>
+                <p class="mt-4 text-xl text-slate-300">
+                    I'm actively seeking new opportunities and would love to hear from you.
+                </p>
+                <div class="mt-10">
+                    <a href="mailto:shubhammadhavi9@gmail.com" class="inline-block px-8 py-4 bg-sky-500 text-white rounded-md font-medium text-lg hover:bg-sky-600 transition duration-300 shadow-lg">
+                        Say Hello
+                    </a>
+                </div>
+                <!-- Social Links -->
+                <div class="mt-16 flex justify-center space-x-8">
+                    <a href="mailto:shubhammadhavi9@gmail.com" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-sky-400 transition duration-300" title="Email">
+                        <span class="sr-only">Email</span>
+                        <svg class="w-8 h-8" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                    </a>
+                    <!-- NOTE: Add your actual GitHub/LinkedIn URLs to the href attribute -->
+                    <a href="#" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-sky-400 transition duration-300" title="GitHub">
+                        <span class="sr-only">GitHub</span>
+                        <svg class="w-8 h-8" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                    </a>
+                    <a href="#" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-sky-400 transition duration-300" title="LinkedIn">
+                        <span class="sr-only">LinkedIn</span>
+                        <svg class="w-8 h-8" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                    </a>
+                    <a href="tel:+12015265040" class="text-slate-400 hover:text-sky-400 transition duration-300" title="Phone">
+                        <span class="sr-only">Phone</span>
+                        <svg class="w-8 h-8" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-8 border-t border-slate-700/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-slate-500">
+            <p>&copy; <span id="current-year"></span> Shubham Madhavi. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Inline JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile menu toggle
+            const menuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const menuIcon = document.getElementById('menu-icon');
+            const closeIcon = document.getElementById('close-icon');
+
+            menuButton.addEventListener('click', () => {
+                const isExpanded = menuButton.getAttribute('aria-expanded') === 'true';
+                menuButton.setAttribute('aria-expanded', !isExpanded);
+                mobileMenu.classList.toggle('hidden');
+                menuIcon.classList.toggle('hidden');
+                closeIcon.classList.toggle('hidden');
+            });
+
+            // Close mobile menu when a link is clicked
+            document.querySelectorAll('#mobile-menu a').forEach(link => {
+                link.addEventListener('click', () => {
+                    menuButton.setAttribute('aria-expanded', 'false');
+                    mobileMenu.classList.add('hidden');
+                    menuIcon.classList.remove('hidden');
+                    closeIcon.classList.add('hidden');
+                });
+            });
+
+            // Set current year in footer
+            document.getElementById('current-year').textContent = new Date().getFullYear();
+
+            // Custom styles injection for skills pills and hero pattern
+            const style = document.createElement('style');
+            style.innerHTML = `
+                .skill-pill {
+                    display: inline-block;
+                    background-color: #1e293b; /* slate-800 */
+                    color: #7dd3fc; /* sky-300 */
+                    font-size: 0.875rem; /* text-sm */
+                    font-weight: 500; /* medium */
+                    padding: 0.25rem 0.75rem; /* px-3 py-1 */
+                    border-radius: 9999px; /* rounded-full */
+                    border: 1px solid #38bdf8; /* sky-400 */
+                }
+                .bg-grid-pattern {
+                    position: relative;
+                    overflow: hidden;
+                }
+                .bg-grid-pattern::before {
+                    content: "";
+                    position: absolute;
+                    inset: 0;
+                    opacity: 0.05;
+                    background-image: linear-gradient(#38bdf8 1px, transparent 1px), linear-gradient(to right, #38bdf8 1px, #0f172a 1px);
+                    background-size: 2rem 2rem;
+                    mask-image: radial-gradient(ellipse at center, white, transparent 70%);
+                }
+            `;
+            document.head.appendChild(style);
+        });
+    </script>
+</body>
+</html>
