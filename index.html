@@ -10,6 +10,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- NEW: Chart.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
     <!-- Custom Styles -->
     <style>
         body {
@@ -61,8 +65,6 @@
             0%, 100% { opacity: 1; }
             50% { opacity: .5; }
         }
-
-        /* --- NEW: Pulsing CTA Text --- */
         #ai-cta-text {
             display: inline-block;
             animation: pulse-text 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
@@ -72,8 +74,6 @@
             0%, 100% { opacity: 1; }
             50% { opacity: 0.6; }
         }
-
-
         #ai-modal {
             background-color: rgba(0, 0, 0, 0.8);
             backdrop-filter: blur(10px);
@@ -87,7 +87,6 @@
             white-space: pre-wrap;
             word-break: break-all;
         }
-        /* Blinking cursor for terminal */
         .blinking-cursor {
             display: inline-block;
             width: 10px;
@@ -99,6 +98,42 @@
         }
         @keyframes blink {
             50% { opacity: 0; }
+        }
+
+        /* --- NEW: Project Demo Styles --- */
+        .project-demo-input {
+            background-color: #1e293b; /* slate-800 */
+            border: 1px solid #334155; /* slate-700 */
+            color: #e2e8f0; /* slate-200 */
+            border-radius: 0.375rem; /* rounded-md */
+            padding: 0.5rem 0.75rem; /* px-3 py-2 */
+            width: 100%;
+        }
+        .project-demo-input:focus {
+            outline: none;
+            border-color: #38bdf8; /* sky-400 */
+            box-shadow: 0 0 0 2px rgba(56, 189, 248, 0.3);
+        }
+        .project-demo-btn {
+            background-color: #334155; /* slate-700 */
+            color: #e2e8f0; /* slate-200 */
+            padding: 0.5rem 1rem;
+            border-radius: 0.375rem;
+            transition: background-color 0.3s;
+        }
+        .project-demo-btn:hover {
+            background-color: #475569; /* slate-600 */
+        }
+        .project-demo-log {
+            background-color: #020617; /* slate-950 */
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.875rem;
+            color: #94a3b8; /* slate-400 */
+            border: 1px solid #1e293b; /* slate-800 */
+            border-radius: 0.375rem;
+            height: 150px;
+            overflow-y: auto;
+            padding: 0.75rem;
         }
     </style>
 </head>
@@ -120,7 +155,7 @@
                     <a href="#projects" class="text-slate-300 hover:text-sky-400 transition duration-300">Projects</a>
                     <a href="#education" class="text-slate-300 hover:text-sky-400 transition duration-300">Education</a>
                     
-                    <!-- NEW: Download Resume Button (Desktop) -->
+                    <!-- Download Resume Button (Desktop) -->
                     <a href="Shubham_Madhavi_Resume.pdf" download="Shubham_Madhavi_Resume.pdf" class="ml-4 px-4 py-2 border border-sky-500 text-sky-400 rounded-md font-medium hover:bg-sky-500 hover:text-white transition duration-300">
                         Download Resume
                     </a>
@@ -152,7 +187,7 @@
                 <a href="#projects" class="block px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:text-white hover:bg-slate-700">Projects</a>
                 <a href="#education" class="block px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:text-white hover:bg-slate-700">Education</a>
                 
-                <!-- NEW: Download Resume Link (Mobile) -->
+                <!-- Download Resume Link (Mobile) -->
                 <a href="Shubham_Madhavi_Resume.pdf" download="Shubham_Madhavi_Resume.pdf" class="block px-3 py-2 rounded-md text-base font-medium text-sky-400 hover:text-white hover:bg-slate-700">Download Resume</a>
 
                 <a href="#contact" class="block px-3 py-2 rounded-md text-base font-medium text-sky-400 hover:text-white hover:bg-slate-700">Contact</a>
@@ -170,7 +205,6 @@
                 <p class="mt-4 text-2xl md:text-4xl font-light text-sky-300 flex items-center justify-center">
                     Software Engineer (Data & AI)
                     <span id="ai-trigger" title="Run Analysis"></span>
-                    <!-- NEW: Pulsing call-to-action text -->
                     <span id="ai-cta-text" class="ml-2 text-base text-sky-300 cursor-pointer font-medium" title="Run Analysis">
                         Click the orb!
                     </span>
@@ -220,87 +254,14 @@
             </div>
         </section>
 
-        <!-- Technical Skills Section -->
+        <!-- NEW: Technical Skills Section (Chart.js) -->
         <section id="skills" class="py-24 sm:py-32 bg-slate-800/60" data-animate>
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <h2 class="text-center text-4xl font-extrabold text-white sm:text-5xl mb-16">
                     Technical Skills
                 </h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <!-- Skill Card 1 -->
-                    <div class="bg-slate-900 rounded-xl shadow-2xl p-6 transition-all duration-300 hover:scale-105 hover:shadow-sky-500/20">
-                        <h3 class="text-2xl font-semibold text-white mb-4">Languages</h3>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="skill-pill">Python (Expert)</span>
-                            <span class="skill-pill">SQL (Expert)</span>
-                            <span class="skill-pill">Java</span>
-                            <span class="skill-pill">C++</span>
-                        </div>
-                    </div>
-                    <!-- Skill Card 2 -->
-                    <div class="bg-slate-900 rounded-xl shadow-2xl p-6 transition-all duration-300 hover:scale-105 hover:shadow-sky-500/20">
-                        <h3 class="text-2xl font-semibold text-white mb-4">Data Science & ML</h3>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="skill-pill">scikit-learn</span>
-                            <span class="skill-pill">TensorFlow (Keras)</span>
-                            <span class="skill-pill">Pandas</span>
-                            <span class="skill-pill">NumPy</span>
-                            <span class="skill-pill">NLP</span>
-                            <span class="skill-pill">TF-IDF</span>
-                            <span class="skill-pill">Word2Vec</span>
-                            <span class="skill-pill">GloVe</span>
-                        </div>
-                    </div>
-                    <!-- Skill Card 3 -->
-                    <div class="bg-slate-900 rounded-xl shadow-2xl p-6 transition-all duration-300 hover:scale-105 hover:shadow-sky-500/20">
-                        <h3 class="text-2xl font-semibold text-white mb-4">Data Engineering</h3>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="skill-pill">PySpark</span>
-                            <span class="skill-pill">Hadoop</span>
-                            <span class="skill-pill">Airflow</span>
-                            <span class="skill-pill">ETL/ELT</span>
-                            <span class="skill-pill">MySQL</span>
-                            <span class="skill-pill">PostgreSQL</span>
-                            <span class="skill-pill">MongoDB</span>
-                        </div>
-                    </div>
-                    <!-- Skill Card 4 -->
-                    <div class="bg-slate-900 rounded-xl shadow-2xl p-6 transition-all duration-300 hover:scale-105 hover:shadow-sky-500/20">
-                        <h3 class="text-2xl font-semibold text-white mb-4">Cloud & DevOps</h3>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="skill-pill">AWS (SageMaker)</span>
-                            <span class="skill-pill">Docker</span>
-                            <span class="skill-pill">Git</span>
-                            <span class="skill-pill">Linux</span>
-                            <span class="skill-pill">CI/CD</span>
-                            <span class="skill-pill">Azure (Familiar)</span>
-                        </div>
-                    </div>
-                    <!-- Skill Card 5 -->
-                    <div class="bg-slate-900 rounded-xl shadow-2xl p-6 transition-all duration-300 hover:scale-105 hover:shadow-sky-500/20">
-                        <h3 class="text-2xl font-semibold text-white mb-4">Generative AI</h3>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="skill-pill">RAG</span>
-                            <span class="skill-pill">LangChain/LangGraph</span>
-                            <span class="skill-pill">Hugging Face</span>
-                            <span class="skill-pill">Vector DBs</span>
-                            <span class="skill-pill">FAISS</span>
-                            <span class="skill-pill">Pinecone</span>
-                        </div>
-                    </div>
-                    <!-- Skill Card 6 -->
-                    <div class="bg-slate-900 rounded-xl shadow-2xl p-6 transition-all duration-300 hover:scale-105 hover:shadow-sky-500/20">
-                        <h3 class="text-2xl font-semibold text-white mb-4">Web & Visualization</h3>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="skill-pill">Node.js</span>
-                            <span class="skill-pill">React</span>
-                            <span class="skill-pill">Matplotlib</span>
-                            <span class="skill-pill">Seaborn</span>
-                            <span class="skill-pill">Plotly</span>
-                            <span class="skill-pill">Power BI</span>
-                            <span class="skill-pill">Tableau</span>
-                        </div>
-                    </div>
+                <div class="max-w-3xl mx-auto h-96 md:h-[500px]">
+                    <canvas id="skillChart"></canvas>
                 </div>
             </div>
         </section>
@@ -347,43 +308,62 @@
             </div>
         </section>
 
-        <!-- Projects Section -->
+        <!-- NEW: Projects Section (Interactive) -->
         <section id="projects" class="py-24 sm:py-32 bg-slate-800/60" data-animate>
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <h2 class="text-center text-4xl font-extrabold text-white sm:text-5xl mb-16">
                     Projects
                 </h2>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <!-- Project Card 1 -->
+                    
+                    <!-- Project Card 1 (Interactive) -->
                     <div class="bg-slate-900 rounded-xl shadow-2xl overflow-hidden flex flex-col transition-all duration-300 hover:shadow-sky-500/20">
                         <div class="p-6 flex-grow">
                             <h3 class="text-2xl font-semibold text-white mb-2">Credit Card Fraud Detection (Machine Learning)</h3>
                             <ul class="list-disc list-outside ml-5 space-y-2 text-slate-300 mb-6">
                                 <li>Achieved 92% accuracy by engineering a Random Forest model on a 284,000-transaction dataset.</li>
                                 <li>Boosted fraud recall by 25% by implementing SMOTE to resolve severe class imbalance.</li>
-                                <li>Conducted in-depth EDA to identify key fraud indicators and engineered new features.</li>
                             </ul>
+                            
+                            <!-- Mini-Demo: Fraud Detection -->
+                            <div class="mt-4 mb-6">
+                                <h4 class="text-sm font-semibold text-sky-300 mb-2">Live Demo:</h4>
+                                <button id="fraud-btn" class="project-demo-btn w-full">Run Simulation</button>
+                                <div id="fraud-log" class="project-demo-log mt-2">
+                                    &gt; Click "Run Simulation" to monitor transactions...
+                                </div>
+                            </div>
                         </div>
                         <div class="p-6 pt-0 mt-auto">
-                            <!-- NOTE: You should update this href to the *specific project repository* URL -->
                             <a href="https://github.com/shubhammadhavi" target="_blank" rel="noopener noreferrer" class="inline-flex items-center font-medium text-sky-400 hover:text-sky-300 transition duration-300">
                                 View on GitHub
                                 <svg class="w-5 h-5 ml-2" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
                             </a>
                         </div>
                     </div>
-                    <!-- Project Card 2 -->
+
+                    <!-- Project Card 2 (Interactive) -->
                     <div class="bg-slate-900 rounded-xl shadow-2xl overflow-hidden flex flex-col transition-all duration-300 hover:shadow-sky-500/20">
                         <div class="p-6 flex-grow">
                             <h3 class="text-2xl font-semibold text-white mb-2">Restaurant Review Sentiment Analysis (Deep Learning)</h3>
                             <ul class="list-disc list-outside ml-5 space-y-2 text-slate-300 mb-6">
                                 <li>Attained 92% accuracy by designing and training an LSTM-based deep learning model.</li>
                                 <li>Outperformed traditional ML baselines (SVM, Random Forest).</li>
-                                <li>Built a complete data processing pipeline using TF-IDF and word embeddings (Word2Vec, GloVe).</li>
                             </ul>
+
+                            <!-- Mini-Demo: Sentiment Analysis -->
+                            <div class="mt-4 mb-6">
+                                <h4 class="text-sm font-semibold text-sky-300 mb-2">Live Demo:</h4>
+                                <div class="flex gap-2">
+                                    <input type="text" id="sentiment-input" class="project-demo-input flex-grow" placeholder="Type a review...">
+                                    <button id="sentiment-btn" class="project-demo-btn">Analyze</button>
+                                </div>
+                                <div id="sentiment-result" class="mt-2 text-slate-300 h-6">
+                                    &gt; Result will appear here...
+                                </div>
+                            </div>
                         </div>
                         <div class="p-6 pt-0 mt-auto">
-                            <!-- NOTE: You should update this href to the *specific project repository* URL -->
                             <a href="https://github.com/shubhammadhavi" target="_blank" rel="noopener noreferrer" class="inline-flex items-center font-medium text-sky-400 hover:text-sky-300 transition duration-300">
                                 View on GitHub
                                 <svg class="w-5 h-5 ml-2" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
@@ -521,7 +501,7 @@
                         observer.unobserve(entry.target);
                     }
                 });
-            }, { threshold: 0.1 }); // Trigger when 10% of the element is visible
+            }, { threshold: 0.1 }); 
 
             document.querySelectorAll('[data-animate]').forEach(el => {
                 observer.observe(el);
@@ -529,7 +509,7 @@
 
             // --- AI Terminal Logic (Fake Script) ---
             const aiTrigger = document.getElementById('ai-trigger');
-            const aiCtaText = document.getElementById('ai-cta-text'); // NEW CTA TEXT
+            const aiCtaText = document.getElementById('ai-cta-text'); 
             const aiModal = document.getElementById('ai-modal');
             const closeModal = document.getElementById('close-modal');
             const terminalOutput = document.getElementById('terminal-output');
@@ -561,7 +541,6 @@
 
             function typeLine() {
                 if (lineIndex >= scriptLines.length) {
-                    // Add blinking cursor at the end
                     const cursor = document.createElement('span');
                     cursor.className = 'blinking-cursor';
                     terminalOutput.appendChild(cursor);
@@ -573,11 +552,9 @@
                 let charIndex = 0;
                 let lineEl = document.createElement('div');
                 
-                // Add color to skill lines
                 if (line.includes("SKILL") || line.includes("VERDICT")) {
                     lineEl.className = "text-sky-300";
                 }
-                // Add color to recommendation
                 if (line.includes("HIRE_NOW")) {
                     lineEl.className = "text-green-400 font-bold";
                 }
@@ -588,30 +565,27 @@
                     if (charIndex < line.length) {
                         lineEl.textContent += line.charAt(charIndex);
                         charIndex++;
-                        terminalOutput.scrollTop = terminalOutput.scrollHeight; // Auto-scroll
-                        setTimeout(typeChar, 20); // Speed of character typing
+                        terminalOutput.scrollTop = terminalOutput.scrollHeight;
+                        setTimeout(typeChar, 20); 
                     } else {
                         lineIndex++;
-                        setTimeout(typeLine, line.length > 1 ? 300 : 50); // Pause between lines
+                        setTimeout(typeLine, line.length > 1 ? 300 : 50);
                     }
                 }
                 typeChar();
             }
             
-            // NEW: Function to open the modal
             function openAiModal() {
                 aiModal.classList.remove('hidden');
-                aiModal.classList.add('flex'); // Use flex to center
-                // Start typing only if not already in progress
+                aiModal.classList.add('flex'); 
                 if (!typingInProgress) {
                     typingInProgress = true;
-                    terminalOutput.innerHTML = ''; // Clear previous run
+                    terminalOutput.innerHTML = ''; 
                     lineIndex = 0;
                     typeLine();
                 }
             }
 
-            // NEW: Add listeners to both orb and text
             aiTrigger.addEventListener('click', openAiModal);
             aiCtaText.addEventListener('click', openAiModal);
 
@@ -620,7 +594,6 @@
                 aiModal.classList.remove('flex');
             });
             
-            // Close modal by clicking background
             aiModal.addEventListener('click', (e) => {
                 if (e.target === aiModal) {
                     aiModal.classList.add('hidden');
@@ -628,20 +601,150 @@
                 }
             });
 
+            // --- NEW: Skill Chart Logic ---
+            const ctx = document.getElementById('skillChart');
+            if (ctx) {
+                new Chart(ctx.getContext('2d'), {
+                    type: 'radar',
+                    data: {
+                        labels: [
+                            'Languages (Python/SQL)', 
+                            'Data Science & ML', 
+                            'Data Engineering', 
+                            'Generative AI', 
+                            'Cloud & DevOps', 
+                            'Web & Visualization'
+                        ],
+                        datasets: [{
+                            label: 'Proficiency',
+                            data: [95, 90, 90, 85, 80, 75], // Scores based on resume
+                            backgroundColor: 'rgba(56, 189, 248, 0.4)', // sky-400 with alpha
+                            borderColor: '#38bdf8', // sky-400
+                            borderWidth: 2,
+                            pointBackgroundColor: '#38bdf8',
+                            pointRadius: 4,
+                            pointHoverRadius: 6,
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        scales: {
+                            r: {
+                                angleLines: { color: 'rgba(203, 213, 225, 0.2)' }, // slate-400 alpha
+                                grid: { color: 'rgba(203, 213, 225, 0.2)' }, // slate-400 alpha
+                                pointLabels: { 
+                                    color: '#cbd5e1', // slate-300
+                                    font: { 
+                                        size: window.innerWidth < 768 ? 10 : 14 // Smaller labels on mobile
+                                    }
+                                },
+                                ticks: {
+                                    color: '#0f172a', // Hides tick labels
+                                    backdropColor: '#0f172a', // slate-900 (hides numbers)
+                                    stepSize: 20,
+                                },
+                                suggestedMin: 0,
+                                suggestedMax: 100,
+                            }
+                        },
+                        plugins: {
+                            legend: {
+                                display: false, // Hide legend for cleaner look
+                            },
+                            tooltip: {
+                                enabled: true,
+                                callbacks: {
+                                    label: function(context) {
+                                        return context.label + ': ' + context.formattedValue + '%';
+                                    }
+                                }
+                            }
+                        }
+                    }
+                });
+            }
 
-            // --- Custom styles injection for skills pills and hero pattern ---
+            // --- NEW: Project Demo Logic ---
+
+            // Sentiment Analysis Demo
+            const sentimentInput = document.getElementById('sentiment-input');
+            const sentimentBtn = document.getElementById('sentiment-btn');
+            const sentimentResult = document.getElementById('sentiment-result');
+
+            if (sentimentBtn) {
+                sentimentBtn.addEventListener('click', () => {
+                    const text = sentimentInput.value.toLowerCase();
+                    sentimentResult.innerHTML = `&gt; <span class="text-yellow-400">Analyzing...</span>`;
+                    
+                    setTimeout(() => {
+                        const positiveWords = ['amazing', 'great', 'good', 'excellent', 'love', 'best', 'fantastic', 'awesome'];
+                        const negativeWords = ['awful', 'terrible', 'bad', 'hate', 'worst', 'disappointed', 'poor'];
+                        
+                        let isPositive = positiveWords.some(word => text.includes(word));
+                        let isNegative = negativeWords.some(word => text.includes(word));
+                        
+                        if (isPositive && !isNegative) {
+                            sentimentResult.innerHTML = `&gt; <span class="text-green-400 font-bold">POSITIVE (92.7% Confidence)</span>`;
+                        } else if (isNegative && !isPositive) {
+                            sentimentResult.innerHTML = `&gt; <span class="text-red-400 font-bold">NEGATIVE (90.1% Confidence)</span>`;
+                        } else if (!text) {
+                            sentimentResult.innerHTML = `&gt; Please enter a review.`;
+                        } else {
+                            sentimentResult.innerHTML = `&gt; <span class="text-slate-400">NEUTRAL (65.3% Confidence)</span>`;
+                        }
+                    }, 500);
+                });
+            }
+
+            // Fraud Detection Demo
+            const fraudBtn = document.getElementById('fraud-btn');
+            const fraudLog = document.getElementById('fraud-log');
+            let fraudInterval;
+
+            if (fraudBtn) {
+                fraudBtn.addEventListener('click', () => {
+                    if (fraudInterval) clearInterval(fraudInterval);
+                    
+                    fraudLog.innerHTML = '';
+                    fraudBtn.disabled = true;
+                    fraudBtn.textContent = 'Simulating...';
+
+                    const transactions = [
+                        'TRX_89234: $54.20 (Amazon)',
+                        'TRX_89235: $12.50 (Starbucks)',
+                        'TRX_89236: $8.99 (Netflix)',
+                        'TRX_89237: $120.00 (Best Buy)',
+                        'TRX_89238: $32.15 (Shell Gas)',
+                        'TRX_89239: $1450.99 (Unknown ISP, Nigeria)', // The fraud
+                        'TRX_89240: $5.75 (Dunkin)',
+                        'TRX_89241: $21.30 (Uber)',
+                    ];
+                    
+                    let i = 0;
+                    fraudInterval = setInterval(() => {
+                        if (i < transactions.length) {
+                            let line = document.createElement('div');
+                            if (transactions[i].includes('Nigeria')) {
+                                line.innerHTML = `<span class="text-red-500 font-bold">[!!] FRAUD DETECTED:</span> ${transactions[i]}`;
+                            } else {
+                                line.innerHTML = `<span class="text-green-400">[OK]</span> ${transactions[i]}`;
+                            }
+                            fraudLog.appendChild(line);
+                            fraudLog.scrollTop = fraudLog.scrollHeight;
+                            i++;
+                        } else {
+                            clearInterval(fraudInterval);
+                            fraudBtn.disabled = false;
+                            fraudBtn.textContent = 'Run Simulation Again';
+                        }
+                    }, 600); // Speed of log
+                });
+            }
+
+            // --- Custom styles injection ---
             const style = document.createElement('style');
             style.innerHTML = `
-                .skill-pill {
-                    display: inline-block;
-                    background-color: #1e293b; /* slate-800 */
-                    color: #7dd3fc; /* sky-300 */
-                    font-size: 0.875rem; /* text-sm */
-                    font-weight: 500; /* medium */
-                    padding: 0.25rem 0.75rem; /* px-3 py-1 */
-                    border-radius: 9999px; /* rounded-full */
-                    border: 1px solid #38bdf8; /* sky-400 */
-                }
                 .bg-grid-pattern {
                     position: relative;
                     overflow: hidden;
